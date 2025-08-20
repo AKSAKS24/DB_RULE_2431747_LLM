@@ -11,7 +11,7 @@ os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
     raise RuntimeError("OPENAI_API_KEY environment variable is required.")
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
 
 # LangChain
 from langchain_openai import ChatOpenAI
@@ -240,7 +240,7 @@ def llm_assess_and_prompt(unit: Unit) -> Dict[str, str]:
 
 # ===== API POST =====
 @app.post("/assess-fico-migration")
-def assess_fico_migration(units: List[Unit]) -> List[Dict[str, Any]]:
+async def assess_fico_migration(units: List[Unit]) -> List[Dict[str, Any]]:
     out = []
     for u in units:
         # Fill selects with regex parser
