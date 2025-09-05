@@ -187,7 +187,6 @@ Your tasks:
    - Replace with ACDOCA or BSEG as per mapping.
    - If statement is SELECT → allow view usage if supported; for writes → use direct table.
    - Add `TODO` comments for field mapping/manual remediation.
-   - Output strictly in JSON with: original_code, remediated_code, changes[].
 
 Return ONLY strict JSON:
 {{
